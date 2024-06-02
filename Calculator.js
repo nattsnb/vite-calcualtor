@@ -20,7 +20,7 @@ export class Calculator {
         16: [`/`, `eqButton`],
         }
     constructor() {
-        this.container = document.querySelector('#app');
+        this.appcontainer = document.querySelector('#app');
         this.input = null;
         this.createInput();
 
@@ -34,10 +34,16 @@ export class Calculator {
 
     }
 
-    createRow = () => {
+    createRow = (firstButton, secondButton, thirdButton, fourthButton) => {
         const row = document.createElement('div');
         row.classList.add(`row`);
-        this.container.append(row);
+        const buttonMap = [firstButton, secondButton, thirdButton, fourthButton]
+        for (i<3; i===0; i++){
+            const newButton = new Button(buttonMap[i])
+            const row = document.createElement('div');
+            row.classList.add(`row`);
+        }
+        this.appcontainer.append(row);
         return row
     }
 
