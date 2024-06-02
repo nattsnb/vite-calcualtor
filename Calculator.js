@@ -7,22 +7,22 @@ export class Calculator {
         this.input = null;
         this.createInput();
         this.buttonStructure = {
-            0: [7, `digitButton`],
-            1: [8, `digitButton`],
-            2: [9, `digitButton`],
-            3: [`+`, `eqButton`],
-            4: [4, `digitButton`],
-            5: [5, `digitButton`],
-            6: [6, `digitButton`],
+            0: [7, `digit-button`],
+            1: [8, `digit-button`],
+            2: [9, `digit-button`],
+            3: [`+`, `eq-button`],
+            4: [4, `digit-button`],
+            5: [5, `digit-button`],
+            6: [6, `digit-button`],
             7: [`-`, `eqButton`],
-            8: [1, `digitButton`],
-            9: [2, `digitButton`],
-            10: [3, `digitButton`],
-            11: [`*`, `eqButton`],
-            12: [`.`, `digitButton`],
-            13: [0, `digitButton`],
-            14: [`=`, `eqButton`],
-            15: [`/`, `eqButton`],
+            8: [1, `digit-button`],
+            9: [2, `digit-button`],
+            10: [3, `digit-button`],
+            11: [`*`, `eq-button`],
+            12: [`.`, `digit-button`],
+            13: [0, `digit-button`],
+            14: [`=`, `eq-button`],
+            15: [`/`, `eq-button`],
         }
         console.log(this.buttonStructure);
         this.createRowWithButtons(0,1,2,3);
@@ -58,5 +58,4 @@ export class Calculator {
         this.appcontainer.append(row);
         return row;
     }
-
 }
