@@ -24,7 +24,6 @@ export class Calculator {
             14: [`=`, `eq-button`],
             15: [`/`, `eq-button`],
         }
-        console.log(this.buttonStructure);
         this.createRowWithButtons(0,1,2,3);
         this.createRowWithButtons(4,5,6,7);
         this.createRowWithButtons(8,9,10,11);
@@ -42,7 +41,6 @@ export class Calculator {
         const row = document.createElement('div');
         row.classList.add(`row`);
         const buttonMap = [firstButton, secondButton, thirdButton, fourthButton];
-        console.log(buttonMap);
         for (let i=0; i<4; i++){
             const buttonContainer = document.createElement('div');
             row.append(buttonContainer);

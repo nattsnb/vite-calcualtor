@@ -12,7 +12,6 @@ export class Button {
         this.buttonContainer.classList.add(`button`, this.buttonInfo[1]);
     }
     changeButtonSign = () => {
-        console.log( this.buttonInfo[0]);
         this.buttonContainer.innerHTML = this.buttonInfo[0];
     }
 
