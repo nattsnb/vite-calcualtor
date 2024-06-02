@@ -32,9 +32,9 @@ export class Calculator {
     }
 
     createInput = () => {
-        this.input = new Input();
         this.createRow().setAttribute('id', 'input-container');
         const inputContainer = document.querySelector('#input-container');
+        this.input = new Input(inputContainer);
         inputContainer.append(this.input);
     }
 

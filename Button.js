@@ -24,10 +24,10 @@ export class Button {
             this.buttonContainer.addEventListener('click', this.clickOnEq);
         }
     }
-    clickOnDigit(){
-        console.log("digit")
+    clickOnDigit = () => {
+        this.calculator.input.digitButtonPressed(this.buttonInfo[0]);
     }
-    clickOnEq(){
-        console.log("eq")
+    clickOnEq = () => {
+        this.calculator.input.eqButtonPressed(this.buttonInfo[0]);
     }
 }
