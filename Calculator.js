@@ -36,7 +36,6 @@ export class Calculator {
         this.createRow().setAttribute('id', 'input-container')
         const inputContainer = document.querySelector('#input-container')
         inputContainer.append(this.input)
-
     }
 
     createRowWithButtons = (firstButton, secondButton, thirdButton, fourthButton) => {
@@ -46,8 +45,7 @@ export class Calculator {
         console.log(buttonMap)
         for (let i=0; i<4; i++){
             const buttonContainer = document.createElement('div');
-            row.classList.add(`row`);
-            console.log(buttonMap[i])
+            row.append(buttonContainer);
             const newButton = new Button(buttonMap[i], this, buttonContainer)
         }
         this.appcontainer.append(row);

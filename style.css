@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 280px;
-    height: 500px;
-    background-color: #429D78 ;
+    height: 370px;
+    background-color: mediumslateblue ;
     padding: 10px;
 }
 
@@ -11,15 +11,16 @@
     background-color: black;
     font-size: 20px;
     color: #FAB20D;
-    width: 200px;
-    margin: 5px;
+    width: 280px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     height: 60px;
 }
 
 .button {
     height: 60px;
     width: 60px;
-    background-color: #36B883;
+    background-color: pink;
     font-size: 30px;
     margin: 5px;
     text-transform: uppercase;
@@ -32,5 +33,5 @@
     display: flex;
     flex-direction: row;
     height: 75px;
-    background-color: red;
+    background-color: hotpink;
 }
