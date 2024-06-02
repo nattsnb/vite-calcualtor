@@ -1,6 +1,6 @@
-import './style.css'
+import './style.css';
 import {Calculator} from "./Calculator.js";
 
-console.log(`scrip is working`)
+console.log(`scrip is working`);
 
-const calculator = new Calculator()
+const calculator = new Calculator();

@@ -24,7 +24,7 @@ export class Calculator {
             14: [`=`, `eqButton`],
             15: [`/`, `eqButton`],
         }
-        console.log(this.buttonStructure)
+        console.log(this.buttonStructure);
         this.createRowWithButtons(0,1,2,3);
         this.createRowWithButtons(4,5,6,7);
         this.createRowWithButtons(8,9,10,11);
@@ -32,31 +32,31 @@ export class Calculator {
     }
 
     createInput = () => {
-        this.input = new Input()
-        this.createRow().setAttribute('id', 'input-container')
-        const inputContainer = document.querySelector('#input-container')
-        inputContainer.append(this.input)
+        this.input = new Input();
+        this.createRow().setAttribute('id', 'input-container');
+        const inputContainer = document.querySelector('#input-container');
+        inputContainer.append(this.input);
     }
 
     createRowWithButtons = (firstButton, secondButton, thirdButton, fourthButton) => {
         const row = document.createElement('div');
         row.classList.add(`row`);
-        const buttonMap = [firstButton, secondButton, thirdButton, fourthButton]
-        console.log(buttonMap)
+        const buttonMap = [firstButton, secondButton, thirdButton, fourthButton];
+        console.log(buttonMap);
         for (let i=0; i<4; i++){
             const buttonContainer = document.createElement('div');
             row.append(buttonContainer);
-            const newButton = new Button(buttonMap[i], this, buttonContainer)
+            const newButton = new Button(buttonMap[i], this, buttonContainer);
         }
         this.appcontainer.append(row);
-        return row
+        return row;
     }
 
     createRow = () => {
         const row = document.createElement('div');
         row.classList.add(`row`);
         this.appcontainer.append(row);
-        return row
+        return row;
     }
 
 }
