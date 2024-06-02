@@ -1,6 +1,6 @@
 import {Input} from "./Input.js";
 
-class Calculator {
+export class Calculator {
     static buttonStructure = {
         1: [7, `digitButton`],
         2: [8, `digitButton`],
@@ -20,7 +20,7 @@ class Calculator {
         16: [`/`, `eqButton`],
         }
     constructor() {
-        this.container = null;
+        this.container = document.querySelector('#app');
         this.input = null;
         this.createInput();
 

@@ -1,0 +1,36 @@
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 500px;
+    background-color: #429D78 ;
+    padding: 10px;
+}
+
+#input-container {
+    background-color: black;
+    font-size: 20px;
+    color: #FAB20D;
+    width: 200px;
+    margin: 5px;
+    height: 60px;
+}
+
+.button {
+    height: 60px;
+    width: 60px;
+    background-color: #36B883;
+    font-size: 30px;
+    margin: 5px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    background-color: red;
+}
