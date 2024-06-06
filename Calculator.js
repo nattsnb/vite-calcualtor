@@ -34,7 +34,6 @@ export class Calculator {
         this.createRow().setAttribute('id', 'input-container');
         const inputContainer = document.querySelector('#input-container');
         this.input = new Input(inputContainer);
-        inputContainer.append(this.input);
     }
 
     createRowWithButtons = (firstButton, secondButton, thirdButton, fourthButton) => {
