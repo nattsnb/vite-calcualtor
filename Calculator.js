@@ -1,58 +1,65 @@
-import {Input} from "./Input.js";
-import {Button} from "./Button.js";
+import { Input } from "./Input.js";
+import { Button } from "./Button.js";
 
 export class Calculator {
-    constructor() {
-        this.appcontainer = document.querySelector('#app');
-        this.input = null;
-        this.createInput();
-        this.buttonStructure = {
-            0: [7, `digit-button`],
-            1: [8, `digit-button`],
-            2: [9, `digit-button`],
-            3: [`+`, `eq-button`],
-            4: [4, `digit-button`],
-            5: [5, `digit-button`],
-            6: [6, `digit-button`],
-            7: [`-`, `eqButton`],
-            8: [1, `digit-button`],
-            9: [2, `digit-button`],
-            10: [3, `digit-button`],
-            11: [`*`, `eq-button`],
-            12: [`.`, `digit-button`],
-            13: [0, `digit-button`],
-            14: [`=`, `eq-button`],
-            15: [`/`, `eq-button`],
-        }
-        this.createRowWithButtons(0,1,2,3);
-        this.createRowWithButtons(4,5,6,7);
-        this.createRowWithButtons(8,9,10,11);
-        this.createRowWithButtons(12,13,14,15);
+  constructor() {
+    this.appcontainer = document.querySelector("#app");
+    this.input = null;
+    this.createInput();
+    const buttonRows = [
+      [
+        { button: "7", buttonType: "digit-button" },
+        { button: "8", buttonType: "digit-button" },
+        { button: "9", buttonType: "digit-button" },
+        { button: "+", buttonType: "eq-button" },
+      ],
+      [
+        { button: "4", buttonType: "digit-button" },
+        { button: "5", buttonType: "digit-button" },
+        { button: "6", buttonType: "digit-button" },
+        { button: "-", buttonType: "eqButton" },
+      ],
+      [
+        { button: "1", buttonType: "digit-button" },
+        { button: "2", buttonType: "digit-button" },
+        { button: "3", buttonType: "digit-button" },
+        { button: "*", buttonType: "eqButton" },
+      ],
+      [
+        { button: ".", buttonType: "digit-button" },
+        { button: "0", buttonType: "digit-button" },
+        { button: `=`, buttonType: "eq-button" },
+        { button: "/", buttonType: "eq-button" },
+      ],
+    ];
+    buttonRows.forEach(this.createRowWithButtons);
+  }
+  createInput = () => {
+    this.createRow().setAttribute("id", "input-container");
+    const inputContainer = document.querySelector("#input-container");
+    this.input = new Input(inputContainer);
+  };
+  createRowWithButtons = (buttonsArray) => {
+    const row = document.createElement("div");
+    row.classList.add(`row`);
+    for (let i = 0; i < buttonsArray.length; i++) {
+      const buttonContainer = document.createElement("div");
+      row.append(buttonContainer);
+      new Button(
+        buttonsArray[i].button,
+        buttonsArray[i].buttonType,
+        this,
+        buttonContainer,
+      );
     }
+    this.appcontainer.append(row);
+    return row;
+  };
 
-    createInput = () => {
-        this.createRow().setAttribute('id', 'input-container');
-        const inputContainer = document.querySelector('#input-container');
-        this.input = new Input(inputContainer);
-    }
-
-    createRowWithButtons = (firstButton, secondButton, thirdButton, fourthButton) => {
-        const row = document.createElement('div');
-        row.classList.add(`row`);
-        const buttonMap = [firstButton, secondButton, thirdButton, fourthButton];
-        for (let i=0; i<4; i++){
-            const buttonContainer = document.createElement('div');
-            row.append(buttonContainer);
-            const newButton = new Button(buttonMap[i], this, buttonContainer);
-        }
-        this.appcontainer.append(row);
-        return row;
-    }
-
-    createRow = () => {
-        const row = document.createElement('div');
-        row.classList.add(`row`);
-        this.appcontainer.append(row);
-        return row;
-    }
+  createRow = () => {
+    const row = document.createElement("div");
+    row.classList.add(`row`);
+    this.appcontainer.append(row);
+    return row;
+  };
 }

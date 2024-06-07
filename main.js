@@ -1,5 +1,5 @@
-import './style.css';
-import {Calculator} from "./Calculator.js";
+import "./style.css";
+import { Calculator } from "./Calculator.js";
 
 console.log(`scrip is working`);
 

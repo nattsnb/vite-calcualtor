@@ -1,32 +1,32 @@
 export class Button {
-    constructor(buttonMapNum, calculator, buttonContainer) {
-        this.buttonMapNum = buttonMapNum;
-        this.calculator = calculator;
-        this.buttonContainer = buttonContainer;
-        this.buttonInfo = this.calculator.buttonStructure[buttonMapNum];
-        this.setButton();
-        this.changeButtonSign();
-        this.initializeEventListener();
-    }
-    setButton = () => {
-        this.buttonContainer.classList.add(`button`, this.buttonInfo[1]);
-    }
-    changeButtonSign = () => {
-        this.buttonContainer.innerHTML = this.buttonInfo[0];
-    }
+  constructor(sign, buttonType, calculator, buttonContainer) {
+    this.calculator = calculator;
+    this.sign = sign;
+    this.buttonType = buttonType;
+    this.buttonContainer = buttonContainer;
+    this.setButton();
+    this.changeButtonSign();
+    this.initializeEventListener();
+  }
+  setButton = () => {
+    this.buttonContainer.classList.add(`button`, this.buttonType);
+  };
+  changeButtonSign = () => {
+    this.buttonContainer.innerHTML = this.sign;
+  };
 
-    initializeEventListener = () => {
-        if (this.buttonInfo[1] === "digit-button"){
-            this.buttonContainer.addEventListener('click', this.clickOnDigit);
-        }
-        if (this.buttonInfo[1] === "eq-button"){
-            this.buttonContainer.addEventListener('click', this.clickOnEq);
-        }
+  initializeEventListener = () => {
+    if (this.buttonType === "digit-button") {
+      this.buttonContainer.addEventListener("click", this.clickOnDigit);
     }
-    clickOnDigit = () => {
-        this.calculator.input.digitButtonPressed(this.buttonInfo[0]);
+    if (this.buttonType === "eq-button") {
+      this.buttonContainer.addEventListener("click", this.clickOnEq);
     }
-    clickOnEq = () => {
-        this.calculator.input.eqButtonPressed(this.buttonInfo[0]);
-    }
+  };
+  clickOnDigit = () => {
+    this.calculator.input.digitButtonPressed(this.sign);
+  };
+  clickOnEq = () => {
+    this.calculator.input.eqButtonPressed(this.sign);
+  };
 }
