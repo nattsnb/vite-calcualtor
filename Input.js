@@ -50,7 +50,7 @@ export class Input {
       if (this.num2 === 0) {
         this.inputContainer.innerHTML = "Do not divide by 0";
       }
-      return this.num1 + this.num2;
+      return this.num1 / this.num2;
     }
   };
 }

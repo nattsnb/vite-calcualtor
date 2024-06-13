@@ -17,13 +17,13 @@ export class Calculator {
         { button: "4", buttonType: "digit-button" },
         { button: "5", buttonType: "digit-button" },
         { button: "6", buttonType: "digit-button" },
-        { button: "-", buttonType: "eqButton" },
+        { button: "-", buttonType: "eq-button" },
       ],
       [
         { button: "1", buttonType: "digit-button" },
         { button: "2", buttonType: "digit-button" },
         { button: "3", buttonType: "digit-button" },
-        { button: "*", buttonType: "eqButton" },
+        { button: "*", buttonType: "eq-button" },
       ],
       [
         { button: ".", buttonType: "digit-button" },
