@@ -8,7 +8,7 @@ export class Input {
   digitButtonPressed = (digit) => {
     this.inputContainer.innerHTML = this.inputContainer.innerHTML + digit;
   };
-  eqButtonPressed = (eq) => {
+  actionButtonPressed = (eq) => {
     if (eq === "=") {
       this.num2 = Number(this.inputContainer.innerHTML.substring(3));
       const result = this.doTheEq();

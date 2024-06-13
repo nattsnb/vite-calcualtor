@@ -1,5 +1,6 @@
 import { Input } from "./Input.js";
-import { Button } from "./Button.js";
+import {DigitButton} from "./DigitButton.js";
+import {ActionButton} from "./ActionButton.js";
 
 export class Calculator {
   constructor() {
@@ -7,30 +8,10 @@ export class Calculator {
     this.input = null;
     this.createInput();
     const buttonRows = [
-      [
-        { button: "7", buttonType: "digit-button" },
-        { button: "8", buttonType: "digit-button" },
-        { button: "9", buttonType: "digit-button" },
-        { button: "+", buttonType: "eq-button" },
-      ],
-      [
-        { button: "4", buttonType: "digit-button" },
-        { button: "5", buttonType: "digit-button" },
-        { button: "6", buttonType: "digit-button" },
-        { button: "-", buttonType: "eq-button" },
-      ],
-      [
-        { button: "1", buttonType: "digit-button" },
-        { button: "2", buttonType: "digit-button" },
-        { button: "3", buttonType: "digit-button" },
-        { button: "*", buttonType: "eq-button" },
-      ],
-      [
-        { button: ".", buttonType: "digit-button" },
-        { button: "0", buttonType: "digit-button" },
-        { button: `=`, buttonType: "eq-button" },
-        { button: "/", buttonType: "eq-button" },
-      ],
+      ["7","8","9","+"],
+      ["4","5","6","-"],
+      ["1","2","3","*"],
+      [".","0","=","/"],
     ];
     buttonRows.forEach(this.createRowWithButtons);
   }
@@ -43,14 +24,24 @@ export class Calculator {
     const row = document.createElement("div");
     row.classList.add(`row`);
     for (let i = 0; i < buttonsArray.length; i++) {
-      const buttonContainer = document.createElement("div");
-      row.append(buttonContainer);
-      new Button(
-        buttonsArray[i].button,
-        buttonsArray[i].buttonType,
-        this,
-        buttonContainer,
-      );
+      if (Number(buttonsArray[i])) {
+        const buttonContainer = document.createElement("div");
+        row.append(buttonContainer);
+        new DigitButton(
+            buttonsArray[i],
+            this,
+            buttonContainer,
+        );
+      }
+      else {
+        const buttonContainer = document.createElement("div");
+        row.append(buttonContainer);
+        new ActionButton(
+            buttonsArray[i],
+            this,
+            buttonContainer,
+        );
+      }
     }
     this.appcontainer.append(row);
     return row;
