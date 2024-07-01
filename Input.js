@@ -27,12 +27,18 @@ export class Input {
         console.log(this.num1);
         console.log(eq);
       } else {
-        this.num2 = Number(this.inputContainer.innerHTML.substring(3));
-        console.log(this.num2);
-        console.log("=");
-        this.num1 = this.doTheEq();
-        console.log(this.num1);
-        console.log(eq);
+        if (this.num2 === null) {
+          this.num2 = Number(this.inputContainer.innerHTML.substring(3));
+          console.log(this.num2);
+          console.log("=");
+          this.num1 = this.doTheEq();
+          this.num2 = null;
+          this.eqSign = eq;
+          this.inputContainer.innerHTML = `${eq}  `;
+          console.log(this.num1);
+          console.log(eq);
+
+        }
       }
     }
   };
