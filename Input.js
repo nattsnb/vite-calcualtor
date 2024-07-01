@@ -12,9 +12,9 @@ export class Input {
     if (eq === "=") {
       this.num2 = Number(this.inputContainer.innerHTML.substring(3));
       const result = this.doTheEq();
-      console.log(this.num2);
-      console.log("=");
-      console.log(result);
+      // console.log(this.num2);
+      // console.log("=");
+      // console.log(result);
       this.inputContainer.innerHTML = result;
       this.num1 = null;
       this.num2 = null;
@@ -24,19 +24,19 @@ export class Input {
         this.num1 = Number(this.inputContainer.innerHTML);
         this.inputContainer.innerHTML = `${eq}  `;
         this.eqSign = eq;
-        console.log(this.num1);
-        console.log(eq);
+        // console.log(this.num1);
+        // console.log(eq);
       } else {
         if (this.num2 === null) {
           this.num2 = Number(this.inputContainer.innerHTML.substring(3));
-          console.log(this.num2);
-          console.log("=");
+          // console.log(this.num2);
+          // console.log("=");
           this.num1 = this.doTheEq();
           this.num2 = null;
           this.eqSign = eq;
           this.inputContainer.innerHTML = `${eq}  `;
-          console.log(this.num1);
-          console.log(eq);
+          // console.log(this.num1);
+          // console.log(eq);
 
         }
       }

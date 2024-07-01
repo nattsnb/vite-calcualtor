@@ -7,7 +7,6 @@ export class Button {
     this.changeButtonSign();
   }
   setButton = () => {
-    console.log(this.buttonContainer)
     this.buttonContainer.classList.add(`button`);
   };
   changeButtonSign = () => {
