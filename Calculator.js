@@ -16,9 +16,16 @@ export class Calculator {
     buttonRows.forEach(this.createRowWithButtons);
   }
   createInput = () => {
+    this.createRow().setAttribute("id", "display-line1");
+    const displayLine1 = document.querySelector("#display-line1")
+    displayLine1.classList.add(`display`)
+    this.createRow().setAttribute("id", "display-line2");
+    const displayLine2 = document.querySelector("#display-line2")
+    displayLine2.classList.add(`display`)
     this.createRow().setAttribute("id", "input-container");
     const inputContainer = document.querySelector("#input-container");
-    this.input = new Input(inputContainer);
+    inputContainer.classList.add(`display`)
+    this.input = new Input(inputContainer, displayLine1, displayLine2);
   };
   createRowWithButtons = (buttonsArray) => {
     const row = document.createElement("div");
@@ -49,7 +56,6 @@ export class Calculator {
 
   createRow = () => {
     const row = document.createElement("div");
-    row.classList.add(`row`);
     this.appcontainer.append(row);
     return row;
   };

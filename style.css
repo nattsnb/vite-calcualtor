@@ -7,14 +7,12 @@
   padding: 10px;
 }
 
-#input-container {
+.display {
   background-color: black;
   font-size: 20px;
   color: #fab20d;
   width: 280px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  height: 60px;
+  height: 80px;
 }
 
 .button {
