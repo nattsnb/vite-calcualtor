@@ -3,7 +3,7 @@ export class Button {
     this.calculator = calculator;
     this.sign = sign;
     this.buttonContainer = buttonContainer;
-    this.setButton()
+    this.setButton();
     this.changeButtonSign();
   }
   setButton = () => {

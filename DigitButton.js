@@ -1,8 +1,8 @@
-import {Button} from "./Button.js";
+import { Button } from "./Button.js";
 
 export class DigitButton extends Button {
   constructor(sign, calculator, buttonContainer) {
-    super(sign, calculator, buttonContainer)
+    super(sign, calculator, buttonContainer);
     this.initializeEventListener();
   }
   initializeEventListener = () => {

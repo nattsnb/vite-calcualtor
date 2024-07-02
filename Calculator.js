@@ -1,6 +1,6 @@
 import { Input } from "./Input.js";
-import {DigitButton} from "./DigitButton.js";
-import {ActionButton} from "./ActionButton.js";
+import { DigitButton } from "./DigitButton.js";
+import { ActionButton } from "./ActionButton.js";
 
 export class Calculator {
   constructor() {
@@ -8,23 +8,23 @@ export class Calculator {
     this.input = null;
     this.createInput();
     const buttonRows = [
-      ["7","8","9","+"],
-      ["4","5","6","-"],
-      ["1","2","3","*"],
-      [".","0","=","/"],
+      ["7", "8", "9", "+"],
+      ["4", "5", "6", "-"],
+      ["1", "2", "3", "*"],
+      [".", "0", "=", "/"],
     ];
     buttonRows.forEach(this.createRowWithButtons);
   }
   createInput = () => {
     this.createRow().setAttribute("id", "display-line1");
-    const displayLine1 = document.querySelector("#display-line1")
-    displayLine1.classList.add(`display`)
+    const displayLine1 = document.querySelector("#display-line1");
+    displayLine1.classList.add(`display`);
     this.createRow().setAttribute("id", "display-line2");
-    const displayLine2 = document.querySelector("#display-line2")
-    displayLine2.classList.add(`display`)
+    const displayLine2 = document.querySelector("#display-line2");
+    displayLine2.classList.add(`display`);
     this.createRow().setAttribute("id", "input-container");
     const inputContainer = document.querySelector("#input-container");
-    inputContainer.classList.add(`display`)
+    inputContainer.classList.add(`display`);
     this.input = new Input(inputContainer, displayLine1, displayLine2);
   };
   createRowWithButtons = (buttonsArray) => {
@@ -34,20 +34,11 @@ export class Calculator {
       if (Number(buttonsArray[i])) {
         const buttonContainer = document.createElement("div");
         row.append(buttonContainer);
-        new DigitButton(
-            buttonsArray[i],
-            this,
-            buttonContainer,
-        );
-      }
-      else {
+        new DigitButton(buttonsArray[i], this, buttonContainer);
+      } else {
         const buttonContainer = document.createElement("div");
         row.append(buttonContainer);
-        new ActionButton(
-            buttonsArray[i],
-            this,
-            buttonContainer,
-        );
+        new ActionButton(buttonsArray[i], this, buttonContainer);
       }
     }
     this.appcontainer.append(row);
