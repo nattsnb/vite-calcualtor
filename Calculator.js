@@ -31,9 +31,9 @@ export class Calculator {
     const row = document.createElement("div");
     row.classList.add(`row`);
     for (let i = 0; i < buttonsArray.length; i++) {
+      const buttonContainer = document.createElement("div");
+      row.append(buttonContainer);
       if (Number(buttonsArray[i])) {
-        const buttonContainer = document.createElement("div");
-        row.append(buttonContainer);
         new DigitButton(buttonsArray[i], this, buttonContainer);
       } else {
         const buttonContainer = document.createElement("div");
