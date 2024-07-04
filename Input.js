@@ -1,8 +1,8 @@
 export class Input {
   constructor(inputContainer, displayLine1, displayLine2) {
     this.inputContainer = inputContainer;
-    this.num1 = null;
-    this.num2 = null;
+    this.firstNumber = null;
+    this.secondNumber = null;
     this.eqSign = null;
     this.displayLine1 = displayLine1;
     this.displayLine2 = displayLine2;
@@ -12,24 +12,22 @@ export class Input {
   };
   actionButtonPressed = (eq) => {
     if (
-      this.num1 === null &&
-      this.num2 === null &&
-      this.eqSign === null &&
+      this.firstNumber === null &&
       this.inputContainer.innerHTML !== ""
     ) {
-      this.num1 = this.inputContainer.innerHTML;
-      this.displayLine1.innerHTML = this.num1;
+      this.firstNumber = this.inputContainer.innerHTML;
+      this.displayLine1.innerHTML = this.firstNumber;
       this.inputContainer.innerHTML = "";
       if (eq !== "=") {
         this.eqSign = eq;
         this.displayLine2.innerHTML = this.eqSign;
       }
-    } else if (this.num1 && this.inputContainer.innerHTML !== "") {
-      this.num2 = this.inputContainer.innerHTML;
-      this.num1 = this.doTheEq();
-      this.displayLine1.innerHTML = this.num1;
+    } else if (this.firstNumber && this.inputContainer.innerHTML !== "" && this.eqSign !== null) {
+      this.secondNumber = this.inputContainer.innerHTML;
+      this.firstNumber = this.doTheEq();
+      this.displayLine1.innerHTML = this.firstNumber;
       this.inputContainer.innerHTML = "";
-      this.num2 = null;
+      this.secondNumber = null;
       if (eq === "=") {
         this.eqSign = null;
         this.displayLine2.innerHTML = "";
@@ -44,19 +42,19 @@ export class Input {
   };
   doTheEq = () => {
     if (this.eqSign === "+") {
-      return parseInt(this.num1) + parseInt(this.num2);
+      return parseInt(this.firstNumber) + parseInt(this.secondNumber);
     }
     if (this.eqSign === "-") {
-      return this.num1 - this.num2;
+      return this.firstNumber - this.secondNumber;
     }
     if (this.eqSign === "*") {
-      return this.num1 * this.num2;
+      return this.firstNumber * this.secondNumber;
     }
     if (this.eqSign === "/") {
-      if (this.num2 === 0) {
+      if (this.secondNumber === 0) {
         return;
       }
-      return this.num1 / this.num2;
+      return this.firstNumber / this.secondNumber;
     }
   };
 }
