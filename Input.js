@@ -11,10 +11,7 @@ export class Input {
     this.inputContainer.innerHTML = this.inputContainer.innerHTML + digit;
   };
   actionButtonPressed = (eq) => {
-    if (
-      this.firstNumber === null &&
-      this.inputContainer.innerHTML !== ""
-    ) {
+    if (this.firstNumber === null && this.inputContainer.innerHTML !== "") {
       this.firstNumber = this.inputContainer.innerHTML;
       this.displayLine1.innerHTML = this.firstNumber;
       this.inputContainer.innerHTML = "";
@@ -22,7 +19,11 @@ export class Input {
         this.eqSign = eq;
         this.displayLine2.innerHTML = this.eqSign;
       }
-    } else if (this.firstNumber && this.inputContainer.innerHTML !== "" && this.eqSign !== null) {
+    } else if (
+      this.firstNumber &&
+      this.inputContainer.innerHTML !== "" &&
+      this.eqSign !== null
+    ) {
       this.secondNumber = this.inputContainer.innerHTML;
       this.firstNumber = this.doTheEq();
       this.displayLine1.innerHTML = this.firstNumber;
