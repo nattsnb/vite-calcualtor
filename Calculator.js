@@ -36,8 +36,6 @@ export class Calculator {
       if (Number(buttonsArray[i])) {
         new DigitButton(buttonsArray[i], this, buttonContainer);
       } else {
-        const buttonContainer = document.createElement("div");
-        row.append(buttonContainer);
         new ActionButton(buttonsArray[i], this, buttonContainer);
       }
     }
