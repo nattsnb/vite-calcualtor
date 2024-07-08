@@ -12,35 +12,42 @@ export class Input {
   };
   actionButtonPressed = (eq) => {
     if (this.firstNumber === null && this.inputContainer.innerHTML !== "") {
-      this.firstNumber = this.inputContainer.innerHTML;
-      this.displayLine1.innerHTML = this.firstNumber;
-      this.inputContainer.innerHTML = "";
-      if (eq !== "=") {
-        this.eqSign = eq;
-        this.displayLine2.innerHTML = this.eqSign;
-      }
+      this.startOperation(eq);
     } else if (
       this.firstNumber &&
       this.inputContainer.innerHTML !== "" &&
       this.eqSign !== null
     ) {
-      this.secondNumber = this.inputContainer.innerHTML;
-      this.firstNumber = this.doTheEq();
-      this.displayLine1.innerHTML = this.firstNumber;
-      this.inputContainer.innerHTML = "";
-      this.secondNumber = null;
-      if (eq === "=") {
-        this.eqSign = null;
-        this.displayLine2.innerHTML = "";
-      } else {
-        this.eqSign = eq;
-        this.displayLine2.innerHTML = eq;
-      }
+      this.finishOperation(eq);
     } else if (eq !== "=") {
-      this.eqSign = eq;
-      this.displayLine2.innerHTML = eq;
+      this.showEqSign(eq);
     }
   };
+  startOperation(eq) {
+    this.firstNumber = this.inputContainer.innerHTML;
+    this.displayLine1.innerHTML = this.firstNumber;
+    this.inputContainer.innerHTML = "";
+    if (eq !== "=") {
+      this.showEqSign(eq);
+    }
+  }
+  finishOperation(eq) {
+    this.secondNumber = this.inputContainer.innerHTML;
+    this.firstNumber = this.doTheEq();
+    this.displayLine1.innerHTML = this.firstNumber;
+    this.inputContainer.innerHTML = "";
+    this.secondNumber = null;
+    if (eq === "=") {
+      this.eqSign = null;
+      this.displayLine2.innerHTML = "";
+    } else {
+      this.showEqSign(eq);
+    }
+  }
+  showEqSign(eq) {
+    this.eqSign = eq;
+    this.displayLine2.innerHTML = eq;
+  }
   doTheEq = () => {
     if (this.eqSign === "+") {
       return parseInt(this.firstNumber) + parseInt(this.secondNumber);
