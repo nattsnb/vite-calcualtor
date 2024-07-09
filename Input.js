@@ -33,6 +33,12 @@ export class Input {
   }
   finishOperation(eq) {
     this.secondNumber = this.inputContainer.innerHTML;
+    if (this.secondNumber === "0" && this.eqSign === "/") {
+      this.displayLine1.innerHTML = "Do not divide by 0";
+      this.inputContainer.innerHTML = "";
+      this.displayLine2.innerHTML = "Please try again";
+      return;
+    }
     this.firstNumber = this.doTheEq();
     this.displayLine1.innerHTML = this.firstNumber;
     this.inputContainer.innerHTML = "";
@@ -59,9 +65,6 @@ export class Input {
       return this.firstNumber * this.secondNumber;
     }
     if (this.eqSign === "/") {
-      if (this.secondNumber === 0) {
-        return;
-      }
       return this.firstNumber / this.secondNumber;
     }
   };
