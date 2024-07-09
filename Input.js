@@ -11,16 +11,20 @@ export class Input {
     this.inputContainer.innerHTML = this.inputContainer.innerHTML + digit;
   };
   actionButtonPressed = (eq) => {
-    if (this.firstNumber === null && this.inputContainer.innerHTML !== "") {
-      this.startOperation(eq);
-    } else if (
-      this.firstNumber &&
-      this.inputContainer.innerHTML !== "" &&
-      this.eqSign !== null
-    ) {
-      this.finishOperation(eq);
-    } else if (eq !== "=") {
-      this.showEqSign(eq);
+    if (eq === "-" && this.inputContainer.innerHTML === "") {
+      this.inputContainer.innerHTML = "-";
+    } else {
+      if (this.firstNumber === null && this.inputContainer.innerHTML !== "") {
+        this.startOperation(eq);
+      } else if (
+        this.firstNumber &&
+        this.inputContainer.innerHTML !== "" &&
+        this.eqSign !== null
+      ) {
+        this.finishOperation(eq);
+      } else if (eq !== "=") {
+        this.showEqSign(eq);
+      }
     }
   };
   startOperation(eq) {
