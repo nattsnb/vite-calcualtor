@@ -8,7 +8,16 @@ export class Input {
     this.displayLine2 = displayLine2;
   }
   digitButtonPressed = (digit) => {
-    this.inputContainer.innerHTML = this.inputContainer.innerHTML + digit;
+    if(digit !== "."){
+      this.inputContainer.innerHTML = this.inputContainer.innerHTML + digit;
+    } else if(this.inputContainer.innerHTML.includes(".")) {
+
+    }
+    if(digit === "." && this.inputContainer.innerHTML.includes(".") !== true){
+      this.inputContainer.innerHTML = this.inputContainer.innerHTML + digit;
+    } else {
+    }
+
   };
   actionButtonPressed = (eq) => {
     if (eq === "-" && this.inputContainer.innerHTML === "") {
@@ -28,7 +37,8 @@ export class Input {
     }
   };
   startOperation(eq) {
-    this.firstNumber = this.inputContainer.innerHTML;
+    this.firstNumber = this.getNumberFromInput(this.inputContainer.innerHTML);
+    console.log(this.firstNumber)
     this.displayLine1.innerHTML = this.firstNumber;
     this.inputContainer.innerHTML = "";
     if (eq !== "=") {
@@ -36,7 +46,8 @@ export class Input {
     }
   }
   finishOperation(eq) {
-    this.secondNumber = this.inputContainer.innerHTML;
+    this.secondNumber = this.getNumberFromInput(this.inputContainer.innerHTML);
+    console.log(this.secondNumber)
     if (this.secondNumber === "0" && this.eqSign === "/") {
       this.displayLine1.innerHTML = "Do not divide by 0";
       this.inputContainer.innerHTML = "";
@@ -60,16 +71,26 @@ export class Input {
   }
   doTheEq = () => {
     if (this.eqSign === "+") {
-      return parseInt(this.firstNumber) + parseInt(this.secondNumber);
+      return (Number(this.firstNumber) + Number(this.secondNumber)).toFixed(2);
     }
     if (this.eqSign === "-") {
-      return this.firstNumber - this.secondNumber;
+      return (this.firstNumber - this.secondNumber).toFixed(2);
     }
     if (this.eqSign === "*") {
-      return this.firstNumber * this.secondNumber;
+      return (this.firstNumber * this.secondNumber).toFixed(2);
     }
     if (this.eqSign === "/") {
-      return this.firstNumber / this.secondNumber;
+      return (this.firstNumber / this.secondNumber).toFixed(2);
     }
   };
+
+  getNumberFromInput(input){
+    if(input.includes("-")){
+      input.replace("-", "")
+      const oppositeNumber = Number(input).toFixed(2)
+      return (oppositeNumber*-1)
+    } else {
+      return Number(input).toFixed(2)
+    }
+  }
 }
