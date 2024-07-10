@@ -20,7 +20,7 @@ export class Input {
 
   };
   actionButtonPressed = (eq) => {
-    if (eq === "-" && this.inputContainer.innerHTML === "") {
+    if (eq === "-" && this.inputContainer.innerHTML === "" && this.displayLine1 !== "") {
       this.inputContainer.innerHTML = "-";
     } else {
       if (this.firstNumber === null && this.inputContainer.innerHTML !== "") {
@@ -86,8 +86,7 @@ export class Input {
 
   getNumberFromInput(input){
     if(input.includes("-")){
-      input.replace("-", "")
-      const oppositeNumber = Number(input).toFixed(2)
+      const oppositeNumber = Number(input.replace("-", "")).toFixed(2)
       return (oppositeNumber*-1)
     } else {
       return Number(input).toFixed(2)
